@@ -5,8 +5,6 @@ import com.intellij.codeInsight.lookup.LookupElementBuilder
 import com.intellij.lang.Language
 import com.intellij.patterns.PlatformPatterns
 import com.intellij.util.ProcessingContext
-import org.jetbrains.kotlin.idea.gradleTooling.get
-import org.jetbrains.kotlin.j2k.getContainingClass
 
 
 class SharedPreferencesContributor : CompletionContributor() {
@@ -21,7 +19,6 @@ class SharedPreferencesContributor : CompletionContributor() {
                     .withInsertHandler { context, item ->
                         val start = context.startOffset
                         val end = context.tailOffset
-                        val current = context.editor.caretModel.offset
                         val newValue = "requireContext().getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)"
                         context.document.replaceString(start, end, newValue)
                     }
