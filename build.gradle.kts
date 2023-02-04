@@ -15,7 +15,7 @@ repositories {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-    version.set("191.8026.42")
+    version.set("2022.1.4")
     type.set("IC") // Target IDE Platform
     plugins.set(listOf("android"))
 }
@@ -35,14 +35,14 @@ tasks {
         sinceBuild.set("191.8026.42")
         untilBuild.set("231.*")
     }
-//
+
 //    signPlugin {
 //        certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
 //        privateKey.set(System.getenv("PRIVATE_KEY"))
 //        password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
 //    }
-//
-//    publishPlugin {
-//        token.set(System.getenv("PUBLISH_TOKEN"))
-//    }
+
+    publishPlugin {
+        token.set(System.getenv("perm:OGtkZXNpZ24=.OTItNzQxOA==.8xbfLL5P6tWcooWXeRUwRGRJyVtcKq"))
+    }
 }
