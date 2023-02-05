@@ -20,6 +20,7 @@
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.android</depends>
 
     <!-- Extension points defined by the plugin.
@@ -28,5 +29,8 @@
         <completion.contributor
                 language="kotlin"
                 implementationClass="com.logicui.simpledroid.SharedPreferencesContributor"/>
+        <annotator
+                language="kotlin"
+                implementationClass="com.logicui.simpledroid.ApplyAnnotator"/>
     </extensions>
 </idea-plugin>
