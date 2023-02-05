@@ -27,9 +27,8 @@ class ApplyAnnotator : Annotator {
                     currentChild = currentChild.nextSibling
                     continue
                 }
-                val referenceElement = currentChild.getChildOfType<KtNameReferenceExpression>()
-                if ((currentChild is KtBinaryExpression || currentChild is KtDotQualifiedExpression)
-                        && referenceElement != null) {
+                val referenceElement = getReference(currentChild)
+                if (referenceElement != null) {
                     val variable = referenceElement.text
                     if (variable == lastVariable) {
                         count++
@@ -49,6 +48,24 @@ class ApplyAnnotator : Annotator {
                 currentChild = currentChild.nextSibling
             }
             checkHighlight(TextRange(startOffset, endOffset), count, holder)
+        }
+    }
+
+    private fun getReference(element: PsiElement) : KtNameReferenceExpression? {
+        var currentElement: PsiElement? = element
+        while (currentElement != null && currentElement.javaClass != KtNameReferenceExpression::class.java) {
+            if (currentElement is KtBinaryExpression
+                    || currentElement is KtDotQualifiedExpression
+                    || currentElement is KtSafeQualifiedExpression) {
+                currentElement = currentElement.firstChild
+            } else {
+                return null
+            }
+        }
+        return if (currentElement == null) {
+            null
+        } else {
+            currentElement as KtNameReferenceExpression
         }
     }
 
