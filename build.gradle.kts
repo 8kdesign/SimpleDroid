@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.logicui.simpledroid"
-version = "1.0.1"
+version = "1.0.3"
 
 repositories {
     mavenCentral()
@@ -32,7 +32,7 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("191.8026.42")
+        sinceBuild.set("201.8743.12")
         untilBuild.set("231.*")
     }
 

@@ -2,7 +2,7 @@
     <plugin
             id="com.logicui.simpledroid.SimpleDroid"
             url="https://github.com/8kdesign/SimpleDroid/blob/master/SimpleDroid.jar"
-            version="1.0">
-        <idea-version since-build="191.8026.42" until-build="231.*"/>
+            version="1.0.3">
+        <idea-version since-build="201.8743.12" until-build="231.*"/>
     </plugin>
 </Plugins>

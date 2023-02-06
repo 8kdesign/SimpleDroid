@@ -74,6 +74,7 @@ class ApplyAnnotator : Annotator {
             highlight(range, holder)
         }
     }
+
     private fun highlight(range: TextRange, holder: AnnotationHolder) {
         holder.newAnnotation(HighlightSeverity.INFORMATION, "Please use apply{}.")
                 .range(range)
